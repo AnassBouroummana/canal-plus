@@ -29,6 +29,7 @@
     "date-fns": "^2.28.0",
     "history": "^5.2.0",
     "lodash": "^4.17.21",
+    "npm-audit-resolver": "^3.0.0-6",
     "prettier": "^2.4.1",
     "query-string": "^7.1.0",
     "react": "^17.0.2",
@@ -59,6 +60,7 @@
     "lint-style": "stylelint 'src/**/*.style.{ts,tsx}' 'src/**/style.{ts,tsx}'",
     "generate": "plop --plopfile scripts/generators/index.js",
     "test": "react-scripts test",
+    "audit" : "resolve-audit --yarn",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
