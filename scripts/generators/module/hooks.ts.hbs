@@ -1,0 +1,11 @@
+import { useDispatch } from 'react-redux';
+import { useTypedAsyncFn } from 'modules/useTypedAsyncFn';
+
+export const useLogin = () => {
+  const dispatch = useDispatch();
+
+  return useTypedAsyncFn(
+    async () => {},
+    [dispatch],
+  );
+};

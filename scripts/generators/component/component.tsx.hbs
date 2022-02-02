@@ -1,0 +1,26 @@
+import React from 'react';
+{{#if wantStyledComponents}}
+import {{{ properCase name }}Container} from './{{ properCase name }}.style';
+{{/if}}
+
+const {{ properCase name }}: React.FC = () => {
+    return (
+      {{#unless wantStyledComponents}}
+      <div>
+      {{/unless}}
+      {{#if wantStyledComponents}}
+      <{{ properCase name }}Container>
+      {{/if}}
+      {{#if wantMessages}}
+      <FormattedMessage id="please.change.me" />
+      {{/if}}
+      {{#if wantStyledComponents}}
+        </{{ properCase name }}Container>
+      {{/if}}
+      {{#unless wantStyledComponents}}
+        </div>
+      {{/unless}}
+    );
+}
+
+export default {{ properCase name }};

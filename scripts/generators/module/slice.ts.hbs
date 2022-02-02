@@ -1,0 +1,22 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+export type {{ properCase name }}State = Readonly<{
+  test: string;
+}>;
+
+const initialState: {{ properCase name }}State = {
+  test: '',
+};
+
+const {{ dashCase name }}Slice = createSlice({
+  name: '{{ dashCase name }}',
+  initialState,
+  reducers: {
+    editThisAction: (state, action: PayloadAction<string>) => {
+      state.test = action.payload;
+    },
+  },
+});
+
+export const { editThisAction } = {{ dashCase name }}Slice.actions;
+export default {{ dashCase name }}Slice.reducer;
