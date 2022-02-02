@@ -3,6 +3,7 @@ import { useTypedAsyncFn } from 'modules/useTypedAsyncFn';
 import { getMedias } from './slice';
 import { MediaQueryParams } from './types';
 import { makeGetRequest } from 'services/networking/client';
+import { BASE_PATH } from 'utils/constants';
 export const useGetMedia = () => {
   const dispatch = useDispatch();
   return useTypedAsyncFn<{ mediaQueryParams: MediaQueryParams }>(
@@ -20,14 +21,11 @@ export const useGetMedia = () => {
 
 const getEndpoint = (mediaQueryParams: MediaQueryParams) => {
   const { page, query } = mediaQueryParams;
-  const path = 'https://api.themoviedb.org/3/';
+  let endpoint = BASE_PATH;
   if (query) {
-    return (
-      path +
-      `search/tv?api_key=92b418e837b833be308bbfb1fb2aca1e&page=${page}&query=${query}`
-    );
+    endpoint += `search/tv?query=${query}&`;
+  } else {
+    endpoint += 'discover/tv?';
   }
-  return (
-    path + `discover/tv?api_key=92b418e837b833be308bbfb1fb2aca1e&page=${page}`
-  );
+  return endpoint + `page=${page}`;
 };

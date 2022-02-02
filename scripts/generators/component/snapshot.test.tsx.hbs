@@ -1,5 +1,4 @@
-import React from 'react';
-import {render} from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import {{ properCase name }} from '../{{ properCase name }}';
 
@@ -9,7 +8,7 @@ Given props, it renders the component and compares it to the saved snapshot.
 */
 describe('[Snapshot] <{{ properCase name }} />', () => {
   it('should render a button with a label', () => {
-    const { container } = render(<{{ properCase name }}  />);
+    const { container } = render(<{{ properCase name }} />);
     expect(container).toMatchSnapshot();
   });
 });

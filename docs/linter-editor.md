@@ -66,8 +66,3 @@ These configuration options will override the following prettier options:
 ```
 
 If you wish to change the configuration, the rule is to check whether it is a editorconfig or prettier relevant configuration and then change it in the appropriate file. The previous configuration options should be written only in the .editorconfig.
-
-## Some recommendations
-
-- Do not adopt a setup once and forget approach for your linting and formatting experience. If you wish to modify the configuration, it is highly recommended to follow the conventions of this documentation.
-- If you have both format on save and lint on save (auto fix on save) capabilities on your editor, it is possible to turn the lint on save on and the format on save off for the project. Indeed, since ESLINT is bundled together with prettier, running a ESLINT fix will also format your code using the prettier configuration.

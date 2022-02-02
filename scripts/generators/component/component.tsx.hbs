@@ -1,6 +1,6 @@
 import React from 'react';
 {{#if wantStyledComponents}}
-import {{{ properCase name }}Container} from './{{ properCase name }}.style';
+import { Styled{{ properCase name }} } from './{{ properCase name }}.style';
 {{/if}}
 
 const {{ properCase name }}: React.FC = () => {
@@ -9,13 +9,7 @@ const {{ properCase name }}: React.FC = () => {
       <div>
       {{/unless}}
       {{#if wantStyledComponents}}
-      <{{ properCase name }}Container>
-      {{/if}}
-      {{#if wantMessages}}
-      <FormattedMessage id="please.change.me" />
-      {{/if}}
-      {{#if wantStyledComponents}}
-        </{{ properCase name }}Container>
+      <Styled{{ properCase name }}></Styled{{ properCase name }}>
       {{/if}}
       {{#unless wantStyledComponents}}
         </div>

@@ -1,6 +1,9 @@
 {
   "home": {
     "welcome": "Welcome to the My Canal +",
-    "empty-list" : "No result"
+    "empty-list" : "No result",
+    "card": {
+      "start":"start"
+    }
   }
 }

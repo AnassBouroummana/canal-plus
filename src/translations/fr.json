@@ -1,6 +1,9 @@
 {
   "home": {
     "welcome" : "Bienvenue sur le site My canal",
-    "empty-list" : "Aucun résultat"
+    "empty-list" : "Aucun résultat",
+    "card": {
+      "start":"start"
+    }
   }
 }

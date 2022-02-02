@@ -4,19 +4,17 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import logo from 'logo.svg';
 import { StyledCard, StyledOverview } from './MediaCard.style';
 import { Media } from 'modules/Media';
+import { FormattedMessage } from 'react-intl';
+import { IMG_BASE_PATH } from 'utils/constants';
 
 interface Props {
   media: Media;
 }
 
 const getMediaImagePath = (backdrop_path: string, poster_path: string) => {
-  const originPath = 'https://image.tmdb.org/t/p/original/';
-  return !!backdrop_path
-    ? originPath.concat(backdrop_path)
-    : originPath.concat(poster_path);
+  return IMG_BASE_PATH.concat(!!backdrop_path ? backdrop_path : poster_path);
 };
 
 const MediaCard: React.FC<Props> = ({ media }) => {
@@ -28,7 +26,6 @@ const MediaCard: React.FC<Props> = ({ media }) => {
         component="img"
         alt="backdropImage"
         height="140"
-        src={logo}
         image={mediapath}
       />
       <CardContent sx={{ flexGrow: 1 }}>
@@ -41,7 +38,7 @@ const MediaCard: React.FC<Props> = ({ media }) => {
       </CardContent>
       <CardActions>
         <Button size="small" variant="contained">
-          Start
+          <FormattedMessage id="home.card.start" />
         </Button>
       </CardActions>
     </StyledCard>
