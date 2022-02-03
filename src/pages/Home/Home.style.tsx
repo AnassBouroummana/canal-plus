@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { colorPalette, getSpacing } from 'stylesheet';
 
-export const StyledMediaList = styled.div`
+export const StyledMoviesList = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
-StyledMediaList.displayName = 'StyledMediaList';
+StyledMoviesList.displayName = 'StyledMoviesList';
 
 export const StyledSearchContainer = styled.div`
   margin: ${getSpacing(8)} 0;

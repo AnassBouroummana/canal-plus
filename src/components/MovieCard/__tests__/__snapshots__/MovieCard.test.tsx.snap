@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MediaCard MediaCard:: must match the snapshot 1`] = `
+exports[`MovieCard MovieCard:: must match the snapshot 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root sc-bdvvtL inSzaB css-bhp9pd-MuiPaper-root-MuiCard-root"

@@ -1,7 +1,7 @@
-import { MediaState } from './Media';
+import { MoviesState } from './Movies';
 import { MovieDetailsState } from './MovieDetails';
 
 export type RootState = Readonly<{
-  media: MediaState;
+  movies: MoviesState;
   movieDetails: MovieDetailsState;
 }>;

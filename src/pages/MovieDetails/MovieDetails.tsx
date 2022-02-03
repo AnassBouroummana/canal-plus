@@ -1,5 +1,5 @@
 import { Chip, Rating } from '@mui/material';
-import { useGetMediaDetails, getMovieDetails } from 'modules/MovieDetails';
+import { useGetMovieDetails, getMovieDetails } from 'modules/MovieDetails';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
@@ -17,11 +17,11 @@ export type ProcedureParams = {
 };
 
 const MovieDetails: React.FC = () => {
-  const [{ loading }, getMediasList] = useGetMediaDetails();
+  const [{ loading }, fetchMovieDetails] = useGetMovieDetails();
   const movie = useSelector(getMovieDetails);
   const { movieId } = useParams<ProcedureParams>();
   useEffect(() => {
-    getMediasList({ id: movieId });
+    fetchMovieDetails({ id: movieId });
   }, []);
   return (
     <>

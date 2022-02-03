@@ -1,8 +1,8 @@
-import { Media } from 'modules/Media';
+import { Movie } from 'modules/Movies';
 import { MovieDetails } from 'modules/MovieDetails';
 import { RootState } from 'modules/types';
 
-export const media: Media = {
+export const movieItem: Movie = {
   id: 1,
   backdrop_path: '/zGqBpfck5wVzS2iy6EsENMZw5kP.jpg',
   name: 'Walking the Americas',
@@ -24,8 +24,8 @@ export const movie: MovieDetails = {
 };
 
 export const state: RootState = {
-  media: {
-    data: [media],
+  movies: {
+    data: [movieItem],
     total_pages: 0,
   },
   movieDetails: {

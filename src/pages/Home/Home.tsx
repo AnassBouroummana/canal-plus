@@ -1,13 +1,13 @@
 import { CircularProgress, InputAdornment, Pagination, Stack, TextField } from '@mui/material';
-import MediaCard from 'components/MediaCard/MediaCard';
+import MovieCard from 'components/MovieCard';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import SearchIcon from '@mui/icons-material/Search';
 import { throttle } from 'lodash';
-import { StyledMediaList, StyledSearchContainer, StyledEmptyList } from './Home.style';
-import { getMedias, getTotalPages, Media } from 'modules/Media';
+import { StyledMoviesList, StyledSearchContainer, StyledEmptyList } from './Home.style';
+import { getMovies, getTotalPages, Movie } from 'modules/Movies';
 import { useSelector } from 'react-redux';
-import { useGetMedia } from 'modules/Media/hooks';
+import { useGetMovies } from 'modules/Movies/hooks';
 import { useQueryParam, StringParam } from 'use-query-params';
 
 const Home: React.FC = () => {
@@ -15,19 +15,19 @@ const Home: React.FC = () => {
   const intl = useIntl();
   const [query, setQuery] = useQueryParam('query', StringParam);
   const [querySearch, setQuerySearch] = useState(query);
-  const [{ loading }, getMediasList] = useGetMedia();
-  const medias = useSelector(getMedias);
+  const [{ loading }, fetchMoviesList] = useGetMovies();
+  const movies = useSelector(getMovies);
   const totalPage = useSelector(getTotalPages);
 
   const fetchMovies = useCallback(
     throttle((querySearch?: string | null) => {
-      getMediasList({ mediaQueryParams: { page: 1, query: querySearch } });
+      fetchMoviesList({ moviesQueryParams: { page: 1, query: querySearch } });
     }, 500),
     [],
   );
 
   useEffect(() => {
-    getMediasList({ mediaQueryParams: { page } });
+    fetchMoviesList({ moviesQueryParams: { page } });
   }, [page]);
 
   useEffect(() => {
@@ -67,18 +67,18 @@ const Home: React.FC = () => {
           }}
         />
       </StyledSearchContainer>
-      <StyledMediaList>
+      <StyledMoviesList>
         {loading ? (
           <CircularProgress color="primary" size={100} />
-        ) : medias.length === 0 ? (
+        ) : movies.length === 0 ? (
           <StyledEmptyList>
             <FormattedMessage id="home.empty-list" />
           </StyledEmptyList>
         ) : (
-          medias.map((media: Media) => <MediaCard key={media.id} media={media} />)
+          movies.map((movie: Movie) => <MovieCard key={movie.id} movie={movie} />)
         )}
-      </StyledMediaList>
-      {medias.length !== 0 && (
+      </StyledMoviesList>
+      {movies.length !== 0 && (
         <Stack spacing={6} sx={{ marginTop: '40px', display: 'flex', alignItems: 'center' }}>
           <Pagination count={totalPage} page={page} onChange={handleChangePage} />
         </Stack>

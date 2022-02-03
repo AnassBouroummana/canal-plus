@@ -1,4 +1,4 @@
-export type Media = {
+export type Movie = {
   id: number;
   name: string;
   overview: string;
@@ -6,12 +6,12 @@ export type Media = {
   poster_path: string;
 };
 
-export type MediaState = Readonly<{
-  data: Media[];
+export type MoviesState = Readonly<{
+  data: Movie[];
   total_pages: number;
 }>;
 
-export type MediaQueryParams = {
+export type MoviesQueryParams = {
   page: number;
   query?: string | null;
 };
