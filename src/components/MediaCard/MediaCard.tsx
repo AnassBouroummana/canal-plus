@@ -1,29 +1,28 @@
 import * as React from 'react';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { StyledCard, StyledOverview } from './MediaCard.style';
 import { Media } from 'modules/Media';
-import { FormattedMessage } from 'react-intl';
 import { IMG_BASE_PATH } from 'utils/constants';
+import { useHistory } from 'react-router';
 
 interface Props {
   media: Media;
 }
 
 const getMediaImagePath = (backdrop_path: string, poster_path: string) => {
-  return IMG_BASE_PATH.concat(!!backdrop_path ? backdrop_path : poster_path);
+  return IMG_BASE_PATH.concat(!!poster_path ? poster_path : backdrop_path);
 };
 
 const MediaCard: React.FC<Props> = ({ media }) => {
-  const { name, overview, backdrop_path, poster_path } = media;
+  const { id, name, overview, backdrop_path, poster_path } = media;
   const mediapath = getMediaImagePath(backdrop_path, poster_path);
+  const history = useHistory();
   return (
-    <StyledCard>
-      <CardMedia component="img" alt="backdropImage" height="140" image={mediapath} />
-      <CardContent sx={{ flexGrow: 1 }}>
+    <StyledCard onClick={() => history.push(`/movies/${id}`)}>
+      <CardMedia component="img" alt="poster image" height="200" image={mediapath} />
+      <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
@@ -31,11 +30,6 @@ const MediaCard: React.FC<Props> = ({ media }) => {
           {overview}
         </StyledOverview>
       </CardContent>
-      <CardActions>
-        <Button size="small" variant="contained">
-          <FormattedMessage id="home.card.start" />
-        </Button>
-      </CardActions>
     </StyledCard>
   );
 };

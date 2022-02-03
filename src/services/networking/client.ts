@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { API_KEY, BASE_PATH } from 'utils/constants';
 
 export const axiosClient = axios.create({});
 
 export const makeGetRequest = async (endpoint: string, data: {} | null = null) => {
-  endpoint = endpoint + '&api_key=92b418e837b833be308bbfb1fb2aca1e';
+  endpoint = BASE_PATH + endpoint + `api_key=${API_KEY}`;
   return axiosClient.get(endpoint, {
     params: data,
   });

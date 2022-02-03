@@ -1,16 +1,10 @@
 import { CircularProgress, InputAdornment, Pagination, Stack, TextField } from '@mui/material';
 import MediaCard from 'components/MediaCard/MediaCard';
 import React, { useCallback, useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import SearchIcon from '@mui/icons-material/Search';
 import { throttle } from 'lodash';
-import {
-  HomeContainer,
-  Title,
-  StyledMediaList,
-  StyledSearchContainer,
-  StyledEmptyList,
-} from './Home.style';
+import { StyledMediaList, StyledSearchContainer, StyledEmptyList } from './Home.style';
 import { getMedias, getTotalPages, Media } from 'modules/Media';
 import { useSelector } from 'react-redux';
 import { useGetMedia } from 'modules/Media/hooks';
@@ -18,6 +12,7 @@ import { useQueryParam, StringParam } from 'use-query-params';
 
 const Home: React.FC = () => {
   const [page, setPage] = useState(1);
+  const intl = useIntl();
   const [query, setQuery] = useQueryParam('query', StringParam);
   const [querySearch, setQuerySearch] = useState(query);
   const [{ loading }, getMediasList] = useGetMedia();
@@ -55,15 +50,12 @@ const Home: React.FC = () => {
   };
 
   return (
-    <HomeContainer>
-      <Title>
-        <FormattedMessage id="home.welcome" />
-      </Title>
+    <>
       <StyledSearchContainer>
         <TextField
-          label="Search"
+          label={intl.formatMessage({ id: 'home.input-search.label' })}
           id="outlined-name"
-          sx={{ m: 1, width: '50ch' }}
+          fullWidth
           value={querySearch}
           onChange={handleSearchChange}
           InputProps={{
@@ -91,7 +83,7 @@ const Home: React.FC = () => {
           <Pagination count={totalPage} page={page} onChange={handleChangePage} />
         </Stack>
       )}
-    </HomeContainer>
+    </>
   );
 };
 

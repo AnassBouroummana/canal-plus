@@ -4,6 +4,12 @@
     "empty-list" : "Aucun résultat",
     "card": {
       "start":"start"
+    },
+    "input-search":{
+      "label" : "Chercher"
     }
+  },
+  "footer": {
+    "built-by" : "Réaliser par Anass BOUROUMMANA // Alter Solutions"
   }
 }

@@ -3,16 +3,16 @@
 exports[`MediaCard MediaCard:: must match the snapshot 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root sc-bdvvtL hfaGGy css-bhp9pd-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root sc-bdvvtL inSzaB css-bhp9pd-MuiPaper-root-MuiCard-root"
   >
     <img
-      alt="backdropImage"
+      alt="poster image"
       class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
-      height="140"
-      src="https://image.tmdb.org/t/p/original//zGqBpfck5wVzS2iy6EsENMZw5kP.jpg"
+      height="200"
+      src="https://image.tmdb.org/t/p/original//6NUjtmU99inCbQ6TkwoTDSQuzIU.jpg"
     />
     <div
-      class="MuiCardContent-root css-2r3irp-MuiCardContent-root"
+      class="MuiCardContent-root css-46bh2p-MuiCardContent-root"
     >
       <div
         class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
@@ -25,20 +25,6 @@ exports[`MediaCard MediaCard:: must match the snapshot 1`] = `
       >
         Explorer Levison Wood sets out to trek 1800 miles from Mexico to Colombia, through fascinating, beautiful and diverse regions, and meets people living everywhere from violent cities to deep jungle.
       </p>
-    </div>
-    <div
-      class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
-    >
-      <button
-        class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButtonBase-root  css-11qr2p8-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
-      >
-        start
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
     </div>
   </div>
 </div>

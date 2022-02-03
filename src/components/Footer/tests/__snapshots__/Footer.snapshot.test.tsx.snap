@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Snapshot] <Footer /> should render a button with a label 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL hbLttv"
+  >
+    Build by Anass BOUROUMMANA // Alter Solutions
+  </div>
+</div>
+`;

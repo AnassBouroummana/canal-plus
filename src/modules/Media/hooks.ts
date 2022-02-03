@@ -3,13 +3,13 @@ import { useTypedAsyncFn } from 'modules/useTypedAsyncFn';
 import { getMedias } from './slice';
 import { MediaQueryParams } from './types';
 import { makeGetRequest } from 'services/networking/client';
-import { BASE_PATH } from 'utils/constants';
+
 export const useGetMedia = () => {
   const dispatch = useDispatch();
   return useTypedAsyncFn<{ mediaQueryParams: MediaQueryParams }>(
     async ({ mediaQueryParams }) => {
       try {
-        const medias = await makeGetRequest(getEndpoint(mediaQueryParams));
+        const medias = await makeGetRequest(getMovieListEndpoint(mediaQueryParams));
         dispatch(getMedias(medias.data));
       } catch (e) {
         console.error({ e });
@@ -19,13 +19,13 @@ export const useGetMedia = () => {
   );
 };
 
-const getEndpoint = (mediaQueryParams: MediaQueryParams) => {
+const getMovieListEndpoint = (mediaQueryParams: MediaQueryParams) => {
   const { page, query } = mediaQueryParams;
-  let endpoint = BASE_PATH;
+  let endpoint = '';
   if (query) {
     endpoint += `search/tv?query=${query}&`;
   } else {
     endpoint += 'discover/tv?';
   }
-  return endpoint + `page=${page}`;
+  return endpoint + `page=${page}&`;
 };

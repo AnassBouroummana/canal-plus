@@ -1,22 +1,5 @@
 import styled from 'styled-components';
-import { colorPalette, fontFamily, fontSize, fontWeight, getSpacing, lineHeight } from 'stylesheet';
-
-export const HomeContainer = styled.div`
-  padding: ${getSpacing(20)};
-  background: ${colorPalette.secondary};
-`;
-HomeContainer.displayName = 'HomeContainer';
-
-export const Title = styled.h1`
-  color: ${colorPalette.white};
-  font-weight: ${fontWeight.bold};
-  font-family: ${fontFamily.main};
-  font-size: ${fontSize.large};
-  line-height: ${lineHeight.medium};
-  margin-bottom: ${getSpacing(10)};
-  text-align: center;
-`;
-Title.displayName = 'Title';
+import { colorPalette, getSpacing } from 'stylesheet';
 
 export const StyledMediaList = styled.div`
   display: flex;

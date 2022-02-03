@@ -27,7 +27,7 @@
     "axios": "^0.25.0",
     "connected-react-router": "^6.9.2",
     "date-fns": "^2.28.0",
-    "history": "^5.2.0",
+    "history": "^4.10.1",
     "lodash": "^4.17.21",
     "npm-audit-resolver": "^3.0.0-6",
     "prettier": "^2.4.1",
@@ -37,6 +37,7 @@
     "react-intl": "^5.24.4",
     "react-redux": "^7.2.6",
     "react-router": "^5.2.1",
+    "react-router-dom": "^5.2.1",
     "react-scripts": "5.0.0",
     "react-use": "^17.3.2",
     "redux": "^4.1.2",
@@ -60,7 +61,7 @@
     "lint-style": "stylelint 'src/**/*.style.{ts,tsx}' 'src/**/style.{ts,tsx}'",
     "generate": "plop --plopfile scripts/generators/index.js",
     "test": "react-scripts test",
-    "audit" : "resolve-audit --yarn",
+    "audit": "resolve-audit --yarn",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

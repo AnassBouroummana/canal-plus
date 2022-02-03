@@ -4,6 +4,12 @@
     "empty-list" : "No result",
     "card": {
       "start":"start"
+    },
+    "input-search":{
+      "label" : "Search"
     }
+  },
+  "footer": {
+    "built-by" : "Build by Anass BOUROUMMANA // Alter Solutions"
   }
 }
