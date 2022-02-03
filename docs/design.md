@@ -2,7 +2,7 @@
 
 ### Styled Components 💅
 
-Follow the code principles when using styled-components
+We using styled-components
 
 ### 💠 CSS
 
