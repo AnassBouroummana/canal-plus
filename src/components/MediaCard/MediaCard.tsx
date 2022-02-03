@@ -22,12 +22,7 @@ const MediaCard: React.FC<Props> = ({ media }) => {
   const mediapath = getMediaImagePath(backdrop_path, poster_path);
   return (
     <StyledCard>
-      <CardMedia
-        component="img"
-        alt="backdropImage"
-        height="140"
-        image={mediapath}
-      />
+      <CardMedia component="img" alt="backdropImage" height="140" image={mediapath} />
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="div">
           {name}

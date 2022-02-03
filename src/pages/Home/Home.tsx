@@ -1,10 +1,4 @@
-import {
-  CircularProgress,
-  InputAdornment,
-  Pagination,
-  Stack,
-  TextField,
-} from '@mui/material';
+import { CircularProgress, InputAdornment, Pagination, Stack, TextField } from '@mui/material';
 import MediaCard from 'components/MediaCard/MediaCard';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -27,9 +21,8 @@ const Home: React.FC = () => {
   const [query, setQuery] = useQueryParam('query', StringParam);
   const [querySearch, setQuerySearch] = useState(query);
   const [{ loading }, getMediasList] = useGetMedia();
-  useEffect(() => {
-    getMediasList({ mediaQueryParams: { page } });
-  }, [page]);
+  const medias = useSelector(getMedias);
+  const totalPage = useSelector(getTotalPages);
 
   const fetchMovies = useCallback(
     throttle((querySearch?: string | null) => {
@@ -39,25 +32,28 @@ const Home: React.FC = () => {
   );
 
   useEffect(() => {
+    getMediasList({ mediaQueryParams: { page } });
+  }, [page]);
+
+  useEffect(() => {
     fetchMovies(querySearch);
   }, [querySearch]);
 
-  const medias = useSelector(getMedias);
-  const totalPage = useSelector(getTotalPages);
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
     setPage(1);
-    setQuery(event.target.value);
-    setQuerySearch(event.target.value);
-    if (event.target.value === '') {
+    setQuerySearch(value);
+    if (value === '') {
       setQuery(undefined);
+    } else {
+      setQuery(value);
     }
   };
-  const handleChangePage = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
+
+  const handleChangePage = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
+
   return (
     <HomeContainer>
       <Title>
@@ -82,27 +78,17 @@ const Home: React.FC = () => {
       <StyledMediaList>
         {loading ? (
           <CircularProgress color="primary" size={100} />
-        ) : (
-          medias.map((media: Media) => (
-            <MediaCard key={media.id} media={media} />
-          ))
-        )}
-        {medias.length === 0 && (
+        ) : medias.length === 0 ? (
           <StyledEmptyList>
             <FormattedMessage id="home.empty-list" />
           </StyledEmptyList>
+        ) : (
+          medias.map((media: Media) => <MediaCard key={media.id} media={media} />)
         )}
       </StyledMediaList>
       {medias.length !== 0 && (
-        <Stack
-          spacing={6}
-          sx={{ marginTop: '40px', display: 'flex', alignItems: 'center' }}
-        >
-          <Pagination
-            count={totalPage}
-            page={page}
-            onChange={handleChangePage}
-          />
+        <Stack spacing={6} sx={{ marginTop: '40px', display: 'flex', alignItems: 'center' }}>
+          <Pagination count={totalPage} page={page} onChange={handleChangePage} />
         </Stack>
       )}
     </HomeContainer>

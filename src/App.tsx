@@ -23,23 +23,17 @@ import Routes from './routes';
 import './index.css';
 import ErrorBoundary from './components/ErrorBoundary';
 import AppCrashFallback from './components/AppCrashFallback';
-import flattenMessages from 'services/i18n/intl';
-import enMessages from 'translations/en.json';
-import frMessages from 'translations/fr.json';
-import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from '@mui/material';
 import theme from 'stylesheet';
 import { QueryParamProvider } from 'use-query-params';
+import ConnectedIntlProvider from 'providers/ConnectedIntlProvider';
 
 interface Props {
   history: History;
   store: Store;
   persistor: Persistor;
 }
-const locales = {
-  fr: flattenMessages(frMessages),
-  en: flattenMessages(enMessages),
-};
+
 const App: React.FunctionComponent<Props> = ({ history, store, persistor }) => {
   return (
     <ErrorBoundary FallbackComponent={AppCrashFallback}>
@@ -49,9 +43,9 @@ const App: React.FunctionComponent<Props> = ({ history, store, persistor }) => {
             <Provider store={store}>
               <PersistGate loading={null} persistor={persistor}>
                 <ConnectedRouter history={history}>
-                  <IntlProvider locale="fr" messages={locales.en}>
+                  <ConnectedIntlProvider>
                     <Routes />
-                  </IntlProvider>
+                  </ConnectedIntlProvider>
                 </ConnectedRouter>
               </PersistGate>
             </Provider>

@@ -9,10 +9,7 @@ import { useAsyncFn } from 'react-use';
  * @param deps that should trigger recreating the callback
  */
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export function useTypedAsyncFn<T>(
-  callback: (input: T) => Promise<any>,
-  deps: any[],
-) {
+export function useTypedAsyncFn<T>(callback: (input: T) => Promise<any>, deps: any[]) {
   return useAsyncFn(async (...args: T[]) => {
     await callback(args[0]);
   }, deps);

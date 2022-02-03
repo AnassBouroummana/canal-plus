@@ -23,10 +23,7 @@ const persistConfig = {
   storage,
 };
 
-export const createAndPersistStore = (
-  history: History,
-  preloadedState = {},
-) => {
+export const createAndPersistStore = (history: History, preloadedState = {}) => {
   const rootReducer = createReducer({ router: connectRouter(history) });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
 

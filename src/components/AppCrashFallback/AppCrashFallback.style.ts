@@ -1,12 +1,6 @@
 import { LoadingButton } from '@mui/lab';
 import styled from 'styled-components';
-import {
-  colorPalette,
-  fontFamily,
-  fontSize,
-  getSpacing,
-  lineHeight,
-} from 'stylesheet';
+import { colorPalette, fontFamily, fontSize, getSpacing, lineHeight } from 'stylesheet';
 
 export const Container = styled.div`
   display: flex;

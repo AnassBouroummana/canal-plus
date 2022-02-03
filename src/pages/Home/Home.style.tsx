@@ -1,12 +1,5 @@
 import styled from 'styled-components';
-import {
-  colorPalette,
-  fontFamily,
-  fontSize,
-  fontWeight,
-  getSpacing,
-  lineHeight,
-} from 'stylesheet';
+import { colorPalette, fontFamily, fontSize, fontWeight, getSpacing, lineHeight } from 'stylesheet';
 
 export const HomeContainer = styled.div`
   padding: ${getSpacing(20)};
